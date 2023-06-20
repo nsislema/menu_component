@@ -1,0 +1,74 @@
+<ion-app>
+  <ion-menu contentId="main-content">
+    <ion-header>
+      <ion-toolbar color="tertiary">
+        <ion-item>
+          <ion-title>Menú</ion-title>
+  
+        </ion-item>
+
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <ion-toolbar>
+        <ion-item>
+          <ion-avatar slot="start">
+            <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+          </ion-avatar>
+          <ion-title color="primary">Natalia Sislema </ion-title>
+        </ion-item>
+      </ion-toolbar>
+
+ 
+      <ion-button expand="block" size="default" color="danger" >Cerrar Sesión</ion-button>
+
+    </ion-content>
+  </ion-menu>
+
+
+  <ion-header id="main-content">
+    <div>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+          <ion-title>Practica Menú Ionic</ion-title>
+        </ion-toolbar>
+      </ion-header>
+    </div>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <ion-item *ngFor="let c of componentes" [routerLink]="c.redirectTo" detail>
+        <ion-icon [name]="c.icon" slot="start" color="primary">
+        </ion-icon>
+        {{c.name}}
+      </ion-item>
+    </ion-list>
+
+
+  </ion-content>
+
+  <ion-content class="ion-padding">
+    <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-buttons slot="start">
+              <ion-button (click)="cancel()"  color="primary" >Cancel</ion-button>
+            </ion-buttons>
+            <ion-title>Editando Perfil</ion-title>
+            <ion-buttons slot="end">
+              <ion-button (click)="confirm()" [strong]="true" color="primary" >Guardar</ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+ 
+      </ng-template>
+    </ion-modal>
+  </ion-content>
+
+
+</ion-app>
